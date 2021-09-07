@@ -279,7 +279,6 @@ public class CardService extends AbstractService<CardEntity> {
         card.getTranslations().addAll(tlBeans2);
 
         var card2 = save(card);
-        processGroupTitle(card2);
 
         return(card2);
     }
