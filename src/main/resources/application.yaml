@@ -1,0 +1,42 @@
+server:
+  port: 9191
+  servlet:
+    contextPath: "/bs"
+spring:
+  datasource:
+    url: "jdbc:postgresql://localhost:5432/lmsdb"
+    username: "postgres"
+    password: "admin"
+  jpa:
+    properties:
+      hibernate:
+        jdbc:
+          lob:
+            non_contextual_creation: "true"
+        dialect: "org.hibernate.dialect.PostgreSQLDialect"
+        enable_lazy_load_no_trans: true
+        event:
+          merge:
+            entity_copy_observer: allow
+        search:
+          default:
+            directory_provider: "filesystem"
+            idexBase: "D:\\Projects\\olive\\bg\\lucene"
+    hibernate:
+      ddl-auto: "create-drop"
+    show-sql: "true"
+  jackson:
+    serialization:
+      fail-on-empty-beans: "false"
+  http:
+    multipart:
+      max-file-size: "1MB"
+      max-request-size: "10MB"
+
+app:
+  loader:
+    load: "true"
+    delete-old: "true"
+  base-locale: "en_US"
+  file-upload:
+    image-folder: "/D:/Projects/olive/bg/images"

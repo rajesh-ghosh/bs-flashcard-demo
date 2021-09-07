@@ -1,0 +1,70 @@
+[
+  {
+    "title": "Country-Capital",
+    "enabled": "true",
+    "cards": [
+      {
+        "challengeType": "TEXT",
+        "challengeText": "India",
+        "answerType": "TEXT",
+        "answerText": "New Delhi",
+        "tagString": "india delhi country capital asia"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Srilanka",
+        "answerType": "TEXT",
+        "answerText": "Colombo",
+        "tagString": "srilanka colombo country capital asia"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Italy",
+        "answerType": "TEXT",
+        "answerText": "Rome",
+        "tagString": "italy rome country capital europe"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Greece",
+        "answerType": "TEXT",
+        "answerText": "Athens",
+        "tagString": "greece athens country capital europe"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Canada",
+        "answerType": "TEXT",
+        "answerText": "Toronto",
+        "tagString": "canada toronto country capital north-america"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "United States",
+        "answerType": "TEXT",
+        "answerText": "Washington DC",
+        "tagString": "unitedstates country capital north-america"
+      }
+    ]
+  },
+  {
+    "title": "Country-Currency",
+    "enabled": "true",
+    "cards": [
+      {
+        "challengeType": "TEXT",
+        "challengeText": "India",
+        "answerType": "TEXT",
+        "answerText": "Rupee",
+        "tagString": "india rupee country currency asia"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Japan",
+        "answerType": "TEXT",
+        "answerText": "Yen",
+        "tagString": "japan yen country currency asia"
+      }
+    ]
+  }
+]
