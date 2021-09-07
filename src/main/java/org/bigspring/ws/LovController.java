@@ -37,7 +37,7 @@ public class LovController {
 
         var locales = locSvc.findAllLocales();
 
-        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("locale", "name", "isoCharSet");
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "locale", "name", "isoCharSet");
         FilterProvider filters = new SimpleFilterProvider().addFilter("lovFilter", filter);
 
         var map = new MappingJacksonValue(locales);
@@ -51,7 +51,7 @@ public class LovController {
 
         var groups = groupSvc.findAllCardGroups();
 
-        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("title", "enabled");
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "title", "enabled");
         FilterProvider filters = new SimpleFilterProvider().addFilter("lovFilter", filter);
 
         var map = new MappingJacksonValue(groups);
@@ -65,7 +65,7 @@ public class LovController {
 
         var cards = cardSvc.findAll();
 
-        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("challengeType", "challengeText", "challengeImageFileLoc");
+        SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "challengeType", "challengeText", "challengeImageFileLoc");
         FilterProvider filters = new SimpleFilterProvider().addFilter("lovFilter", filter);
 
         var map = new MappingJacksonValue(cards);

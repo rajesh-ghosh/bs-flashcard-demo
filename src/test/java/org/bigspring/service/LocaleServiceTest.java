@@ -28,23 +28,53 @@ public class LocaleServiceTest {
 
     @Before
     public void before() {
-        svc.deleteAll();
-        var locales = makeLocales();
-        svc.saveAll(locales);
+        //svc.deleteAll();
+        //var locales = makeLocales();
+        //svc.saveAll(locales);
     }
 
     @After
     public void after() {
-        svc.deleteAll();
+        //svc.deleteAll();
     }
 
-    @Test
+    //@Test
     public void test_add() {
 
         var locales = svc.findAllLocales();
         assertNotNull("Locales should exist", locales);
         assertTrue("More than 1 locales", locales.size() > 1);
 
+    }
+
+    @Test
+    public void test_enable() {
+
+        var locale = new LocaleEntity();
+        locale.setLocale("ml_IN");
+        locale.setEnabled(false);
+        locale.setIsoCharSet("UTF-8");
+        locale.setName("Malayalam-India");
+        locale.setRtlLang(false);
+
+        var locale2 = svc.save(locale);
+        assertNotNull("locale should exist", locale2);
+        assertFalse("locale is not enabled", locale2.isEnabled());
+
+        var locale3 = new LocaleEntity();
+        locale3.setLocale(locale2.getLocale());
+        locale3.setId(locale2.getId());
+        locale3.setEnabled(true);
+        locale3.setIsoCharSet(locale2.getIsoCharSet());
+        locale3.setName(locale2.getName());
+        locale3.setRtlLang(locale2.isRtlLang());
+
+        var locale4 = svc.save(locale3);
+
+        var locale5 = svc.findByLocale(locale4.getLocale());
+
+        assertNotNull("locale should exist", locale5);
+        assertTrue("locale is enabled", locale5.isEnabled());
     }
 
     private List<LocaleEntity> makeLocales() {

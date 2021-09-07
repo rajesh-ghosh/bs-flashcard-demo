@@ -13,22 +13,13 @@ import org.hibernate.search.query.facet.FacetingRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
-import java.io.File;
-import java.io.IOException;
-import java.lang.reflect.Array;
-import java.net.URI;
-import java.nio.file.*;
 import java.util.*;
 import java.util.logging.Logger;
-
-import static org.bigspring.model.AllEnums.*;
 
 @Service("cardService")
 public class CardService extends AbstractService<CardEntity> {
@@ -171,7 +162,7 @@ public class CardService extends AbstractService<CardEntity> {
         for (Facet f : facets) {
             //System.out.println( "### TagCloud : - " + f.getValue() + " (" + f.getCount() + ")");
             var facet = new FacetBean();
-            facet.setFacetName(f.getValue()); facet.setCount(f.getCount());
+            facet.setValue(f.getValue()); facet.setCount(f.getCount());
             beans.add(facet);
         }
 
@@ -187,7 +178,7 @@ public class CardService extends AbstractService<CardEntity> {
 
     @Transactional(readOnly = true, noRollbackFor = {NoResultException.class})
     public CardEntity findById(Long id) {
-        var card = cardRepo.getOne(id);
+        var card = cardRepo.findById(id).orElseThrow(() -> {return new IllegalArgumentException("Could not find card with id - " + id);});
         processGroupTitle(card);
         return(card);
     }

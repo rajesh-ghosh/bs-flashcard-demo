@@ -4,16 +4,16 @@ import java.io.Serializable;
 
 public class FacetBean implements Serializable {
 
-    private String facetName;
+    private String value;
 
     private int count;
 
-    public String getFacetName() {
-        return facetName;
+    public String getValue() {
+        return value;
     }
 
-    public void setFacetName(String facetName) {
-        this.facetName = facetName;
+    public void setValue(String value) {
+        this.value = value;
     }
 
     public int getCount() {

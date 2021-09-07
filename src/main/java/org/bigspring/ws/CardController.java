@@ -85,7 +85,7 @@ public class CardController {
     @PostMapping("/cards/{id:[0-9]+}/tls")
     @Transactional
     @ResponseBody
-    public CardEntity addTranslations(@PathVariable(value = "id", required = true) Long id, List<CardTLBean> tlBeans) {
+    public CardEntity addTranslations(@PathVariable(value = "id", required = true) Long id, @RequestBody List<CardTLBean> tlBeans) {
         var card = svc.addTranslations(id, tlBeans);
         return (card);
     }

@@ -17,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.assertNotNull;
@@ -83,7 +84,7 @@ public class CardServiceTest {
         assertTrue("Cards in group must be more than before", group2.getCards().size() > numCards);
     }
 
-    //@Test
+    @Test
     @Transactional
     public void test_addLanguage() {
 
@@ -119,7 +120,7 @@ public class CardServiceTest {
         assertTrue("atleast 1 card", cards.size() > 0);
     }
 
-    @Test
+    //@Test
     @Transactional
     public void test_tagCloud() {
         svc.tagCloud();

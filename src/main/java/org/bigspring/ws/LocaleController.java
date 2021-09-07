@@ -53,7 +53,7 @@ public class LocaleController {
         return one;
     }
 
-    @PutMapping("locales/{id:[0-9]+")
+    @PutMapping("locales/{id:[0-9]+}")
     @ResponseBody
     public LocaleEntity save(@PathVariable("id") Long id, @RequestBody LocaleEntity locale) {
         if (locale.getId() == null)
