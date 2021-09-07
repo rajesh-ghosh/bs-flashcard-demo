@@ -54,7 +54,8 @@ public class LoaderService {
         }
 
         ObjectMapper mapper = new ObjectMapper();
-        List<LocaleEntity> locales = mapper.readValue(localeFile.getFile(), new TypeReference<List<LocaleEntity>>() {});
+        List<LocaleEntity> locales = mapper.readValue(localeFile.getInputStream(), new TypeReference<List<LocaleEntity>>() {});
+
         if (locales != null && !locales.isEmpty()) {
 
             locales.forEach(locale -> { if (locale.getRevisionControl() == null) locale.setRevisionControl(makeRevision()); });
@@ -76,7 +77,7 @@ public class LoaderService {
         }
 
         ObjectMapper mapper = new ObjectMapper();
-        List<CardGroupEntity> groups = mapper.readValue(cardGroupFile.getFile(), new TypeReference<List<CardGroupEntity>>() {});
+        List<CardGroupEntity> groups = mapper.readValue(cardGroupFile.getInputStream(), new TypeReference<List<CardGroupEntity>>() {});
 
         if (reset)
             groupSvc.deleteAll();
