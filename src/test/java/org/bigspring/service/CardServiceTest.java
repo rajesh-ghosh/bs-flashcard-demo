@@ -57,9 +57,10 @@ public class CardServiceTest {
         assertTrue("more than 1 cards", all.size() > 1);
     }
 
-    //@Test
+    @Test
     @Transactional
     public void test_addCard() {
+
         var groups = groupSvc.findAllCardGroups();
         CardGroupEntity group  = new CardGroupEntity();
         group.setId(groups.get(1).getId());
@@ -163,7 +164,7 @@ public class CardServiceTest {
         var card = new CardEntity();
         card.setChallengeType(AllEnums.CardType.TEXT);
         card.setChallengeText("Question - " + Double.toHexString(rand));
-        card.setChallengeType(AllEnums.CardType.TEXT);
+        card.setAnswerType(AllEnums.CardType.TEXT);
         card.setAnswerText("Answer - " + Double.toHexString(rand));
         card.setTagString("test sample demo");
         return(card);

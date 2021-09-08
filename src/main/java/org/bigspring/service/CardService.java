@@ -286,7 +286,7 @@ public class CardService extends AbstractService<CardEntity> {
         ArrayList<CardEntity> cards = new ArrayList<>();
         if (iDs != null && !iDs.isEmpty()) {
             iDs.forEach( id -> {
-                var entity = cardRepo.getOne(id);
+                var entity = cardRepo.findById(id).orElseThrow(() -> {return new IllegalArgumentException("Could not find card group with id - " + id);});
                 cards.add(entity);
             });
         }
@@ -326,7 +326,7 @@ public class CardService extends AbstractService<CardEntity> {
             if (group.getId() == null)
                 throw new IllegalStateException("Card group id cannot be null for adding new card - " + entity.getChallengeText());
 
-            var group2 = groupRepo.getOne(group.getId());
+            var group2 = groupRepo.findById(group.getId()).orElseThrow(() -> {return new IllegalArgumentException("Could not find card group with id - " + group.getId());});
             entity.setCardGroupRef(group2);
             group2.getCards().add(entity);
         }
@@ -350,7 +350,7 @@ public class CardService extends AbstractService<CardEntity> {
             if (group.getId() == null)
                 throw new IllegalStateException("Card group id cannot be null for adding new card - " + entity.getChallengeText());
 
-            var group2 = groupRepo.getOne(group.getId());
+            var group2 = groupRepo.findById(group.getId()).orElseThrow(() -> {return new IllegalArgumentException("Could not find card group with id - " + group.getId());});
             entity.setCardGroupRef(group2);
             //group2.getCards().add(entity);
         }

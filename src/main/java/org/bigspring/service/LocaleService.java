@@ -99,7 +99,7 @@ public class LocaleService extends AbstractService<LocaleEntity> {
         ArrayList<LocaleEntity> locales = new ArrayList<>();
         if (iDs != null && !iDs.isEmpty()) {
             iDs.forEach(id -> {
-                var entity = localeRepo.getOne(id);
+                var entity = localeRepo.findById(id).orElseThrow(() -> {return new IllegalArgumentException("Could not find locale with id - " + id); });
                 locales.add(entity);
             });
             localeRepo.deleteAll(locales);

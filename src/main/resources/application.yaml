@@ -39,4 +39,4 @@ app:
     delete-old: "true"
   base-locale: "en_US"
   file-upload:
-    image-folder: "/D:/Projects/olive/bg/images"
+    image-folder: "D:\\Projects\\olive\\bg\\images"

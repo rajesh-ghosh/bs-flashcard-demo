@@ -109,7 +109,7 @@ public class CardGroupServiceTest {
     private CardEntity makeCard() {
         var rand = Math.random();
         var card = new CardEntity();
-        card.setAnswerType(AllEnums.CardType.TEXT);
+        card.setChallengeType(AllEnums.CardType.TEXT);
         card.setChallengeText("Question - " + Double.toHexString(rand));
         card.setAnswerType(AllEnums.CardType.TEXT);
         card.setAnswerText("Answer - " + Double.toHexString(rand));

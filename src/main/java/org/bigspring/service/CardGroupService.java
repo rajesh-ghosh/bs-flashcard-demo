@@ -180,7 +180,7 @@ public class CardGroupService extends AbstractService<CardGroupEntity> {
         ArrayList<CardGroupEntity> groups = new ArrayList<>();
         if (iDs != null && !iDs.isEmpty()) {
             iDs.forEach( id -> {
-                    var entity = groupRepo.getOne(id);
+                    var entity = groupRepo.findById(id).orElseThrow(() -> {return new IllegalArgumentException("Could not find card group with id - " + id);});
                     groups.add(entity);
             });
         }
