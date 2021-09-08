@@ -1,6 +1,7 @@
 package org.bigspring.service;
 
 import org.apache.lucene.search.Query;
+import org.bigspring.common.CardsSummaryBean;
 import org.bigspring.model.*;
 import org.hibernate.search.jpa.FullTextEntityManager;
 import org.hibernate.search.jpa.FullTextQuery;
@@ -20,6 +21,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import java.util.*;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Service("cardService")
 public class CardService extends AbstractService<CardEntity> {
@@ -38,6 +40,10 @@ public class CardService extends AbstractService<CardEntity> {
     @Autowired
     @Qualifier("localeRepository")
     private LocaleRepository locRepo;
+
+    @Autowired
+    @Qualifier("localeService")
+    private LocaleService locSvc;
 
     @Autowired
     @Qualifier("keyGenRepository")
@@ -294,6 +300,24 @@ public class CardService extends AbstractService<CardEntity> {
         return (cards);
     }
 
+    @Transactional
+    public CardsSummaryBean getCardsSummary() {
+        var cards = cardRepo.findAll();
+        var bean = new CardsSummaryBean();
+        if (cards != null && !cards.isEmpty()) {
+            int all = cards.size();
+            bean.setTotalCards(cards.size());
+            Set<String> locCodes = locSvc.getLocaleCodes(true);
+            var fullTls = cards.stream().filter(card -> getCardLocales(card).containsAll(locCodes)).collect(Collectors.toList());
+            int countFullTls = fullTls == null ? 0 : fullTls.size();
+            int countPartTls = all - countFullTls;
+            bean.setFullTlCards(countFullTls);
+            bean.setPartTlCards(countPartTls);
+        }
+
+        return (bean);
+    }
+
     @Override
     @Transactional
     public CardEntity preProcess(int type, CardEntity entity, boolean valParent) {
@@ -501,5 +525,17 @@ public class CardService extends AbstractService<CardEntity> {
         }
 
         return(translations);
+    }
+
+    private Set<String> getCardLocales(CardEntity card) {
+
+        Set<String> codes = new HashSet<>();
+
+        Set<CardTLBean> tls = card.getTranslations();
+        if (tls != null && !tls.isEmpty()) {
+            tls.forEach(tl -> codes.add(tl.getLocaleCode()));
+        }
+
+        return(codes);
     }
 }

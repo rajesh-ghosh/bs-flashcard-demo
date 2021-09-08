@@ -4,6 +4,7 @@ import org.bigspring.model.CardEntity;
 import org.bigspring.model.CardTLBean;
 import org.bigspring.model.FacetBean;
 import org.bigspring.service.CardService;
+import org.bigspring.service.LocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,7 +33,7 @@ public class CardController {
     @PostMapping("/cards")
     @Transactional
     @ResponseBody
-    public List<CardEntity> saveAll(List<CardEntity> cards) {
+    public List<CardEntity> saveAll(@RequestBody List<CardEntity> cards) {
         var saved = svc.saveAll(cards);
         return(saved);
     }
@@ -40,7 +41,7 @@ public class CardController {
     @DeleteMapping("/cards")
     @Transactional
     @ResponseBody
-    public List<CardEntity> deleteAll(List<Long> iDs) {
+    public List<CardEntity> deleteAll(@RequestBody List<Long> iDs) {
         var cards = svc.deleteAll(iDs);
         return(cards);
     }

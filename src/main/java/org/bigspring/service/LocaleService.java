@@ -8,10 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 @Service("localeService")
 public class LocaleService extends AbstractService<LocaleEntity> {
@@ -105,6 +102,21 @@ public class LocaleService extends AbstractService<LocaleEntity> {
             localeRepo.deleteAll(locales);
         }
         return(locales);
+    }
+
+    @Transactional
+    public Set<String> getLocaleCodes(boolean enabled) {
+        List<LocaleEntity> locales;
+        if (enabled)
+            locales = localeRepo.findByEnabledLocales();
+        else
+            locales = localeRepo.findAll();
+        Set<String> codes = new HashSet<>();
+        if (locales != null && !locales.isEmpty()) {
+            locales.forEach(locale -> { codes.add(locale.getLocale()); });
+        }
+
+        return (codes);
     }
 
     @Override

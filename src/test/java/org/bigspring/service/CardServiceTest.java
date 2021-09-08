@@ -1,5 +1,6 @@
 package org.bigspring.service;
 
+import org.bigspring.common.CardsSummaryBean;
 import org.bigspring.model.AllEnums;
 import org.bigspring.model.CardEntity;
 import org.bigspring.model.CardGroupEntity;
@@ -57,7 +58,7 @@ public class CardServiceTest {
         assertTrue("more than 1 cards", all.size() > 1);
     }
 
-    @Test
+    //@Test
     @Transactional
     public void test_addCard() {
 
@@ -85,7 +86,7 @@ public class CardServiceTest {
         assertTrue("Cards in group must be more than before", group2.getCards().size() > numCards);
     }
 
-    @Test
+    //@Test
     @Transactional
     public void test_addLanguage() {
 
@@ -119,6 +120,19 @@ public class CardServiceTest {
 
         assertNotNull("Matching cards should exist", cards);
         assertTrue("atleast 1 card", cards.size() > 0);
+    }
+
+    @Test
+    @Transactional
+    public void test_summary() {
+
+        CardsSummaryBean bean = svc.getCardsSummary();
+
+        System.out.println(bean);
+
+        assertTrue("total gt 1", bean.getTotalCards() > 1);
+        assertTrue("part tl gt 1", bean.getPartTlCards() > 1);
+
     }
 
     //@Test
