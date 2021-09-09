@@ -35,6 +35,12 @@ public class LocaleService extends AbstractService<LocaleEntity> {
         return  one;
     }
 
+    @Transactional(readOnly=true, noRollbackFor={javax.persistence.NoResultException.class})
+    public LocaleEntity findByById(Long id) {
+        var one = localeRepo.findById(id).orElseThrow(() -> { throw new IllegalArgumentException("Could not find locale with id - " + id); });
+        return  one;
+    }
+
     @Transactional
     public List<LocaleEntity> saveAll(List<LocaleEntity> locales) {
 

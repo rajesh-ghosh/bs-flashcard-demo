@@ -37,6 +37,6 @@ app:
   loader:
     load: "true"
     delete-old: "true"
-  base-locale: "en_US"
+  base-locale: "en-US"
   file-upload:
     image-folder: "D:\\Projects\\olive\\bg\\images"

@@ -1,102 +1,102 @@
 [
   {
-    "locale" : "en_US",
+    "locale" : "en-US",
     "name" : "English-United States",
     "isoCharSet" : "ISO8859-1",
     "rtlLang" : "false",
     "enabled" : "true"
   },
   {
-    "locale" : "en_GB",
+    "locale" : "en-GB",
     "name" : "English-United Kingdom",
     "isoCharSet" : "ISO8859-15",
     "rtlLang" : "false",
     "enabled" : "true"
   },
   {
-    "locale" : "es_ES",
+    "locale" : "es-ES",
     "name" : "Spanish-Spain",
     "isoCharSet" : "ISO8859-15",
     "rtlLang" : "false",
     "enabled" : "true"
   },
   {
-    "locale" : "es_MX",
+    "locale" : "es-MX",
     "name" : "Spanish-Mexico",
     "isoCharSet" : "ISO8859-15",
     "rtlLang" : "false",
     "enabled" : "false"
   },
   {
-    "locale" : "ca_ES",
+    "locale" : "ca-ES",
     "name" : "Catalan-Spain",
     "isoCharSet" : "ISO8859-15",
     "rtlLang" : "false",
     "enabled" : "false"
   },
   {
-    "locale" : "fr_FR",
+    "locale" : "fr-FR",
     "name" : "French-France",
     "isoCharSet" : "ISO8859-15",
     "rtlLang" : "false",
     "enabled" : "true"
   },
   {
-    "locale" : "fr_CA",
+    "locale" : "fr-CA",
     "name" : "French-Canada",
     "isoCharSet" : "UTF-8",
     "rtlLang" : "false",
     "enabled" : "true"
   },
   {
-    "locale" : "ru_RU",
+    "locale" : "ru-RU",
     "name" : "Russian-Russia",
     "isoCharSet" : "ISO8859-5",
     "enabled" : "false"
   },
   {
-    "locale" : "ar_SA",
+    "locale" : "ar-SA",
     "name" : "Arabic-Saudi Arabia",
     "isoCharSet" : "UTF-8",
     "rtlLang" : "true",
     "enabled" : "false"
   },
   {
-    "locale" : "he_IL",
+    "locale" : "he-IL",
     "name" : "Hebrew-Israel",
     "isoCharSet" : "UTF-8",
     "rtlLang" : "true",
     "enabled" : "false"
   },
   {
-    "locale" : "ko_KR",
+    "locale" : "ko-KR",
     "name" : "Korean-Korea",
     "isoCharSet" : "UTF-8",
     "rtlLang" : "false",
     "enabled" : "false"
   },
   {
-    "locale" : "ja_JP",
+    "locale" : "ja-JP",
     "name" : "Japanese-Japan",
     "isoCharSet" : "UTF-8",
     "rtlLang" : "false",
     "enabled" : "false"
   },
   {
-    "locale" : "zh_CN",
+    "locale" : "zh-CN",
     "name" : "Simplified Chinese-China",
     "isoCharSet" : "GB2312",
     "rtlLang" : "false",
     "enabled" : "false"
   },
   {
-    "locale" : "zh_TW",
+    "locale" : "zh-TW",
     "name" : "Traditional Chinese-Taiwan",
     "isoCharSet" : "CNS11643-1992",
     "enabled" : "false"
   },
   {
-    "locale" : "hi_IN",
+    "locale" : "hi-IN",
     "name" : "Hindi-India",
     "isoCharSet" : "UTF-8",
     "enabled" : "false"

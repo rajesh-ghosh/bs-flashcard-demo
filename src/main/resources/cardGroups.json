@@ -64,6 +64,75 @@
         "answerType": "TEXT",
         "answerText": "Yen",
         "tagString": "japan yen country currency asia"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Mexico",
+        "answerType": "TEXT",
+        "answerText": "Peso",
+        "tagString": "mexico peso country currency north-america"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Argentina",
+        "answerType": "TEXT",
+        "answerText": "Peso",
+        "tagString": "argentina peso country currency south-america"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Turkey",
+        "answerType": "TEXT",
+        "answerText": "Lira",
+        "tagString": "turkey lira country currency europe"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Israel",
+        "answerType": "TEXT",
+        "answerText": "Shekel",
+        "tagString": "israel shekel country currency asia"
+      }
+    ]
+  },
+  {
+    "title": "Physics Formuala Grade 10",
+    "enabled": "true",
+    "cards": [
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Gravitational Force",
+        "answerType": "TEXT",
+        "answerText": "F = G (gravitational constant) * M1 ( mass ) * M2 (mass)/r (distance) ^2",
+        "tagString": "physics grade10 formula gravity force mass distance"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Kinetic Force",
+        "answerType": "TEXT",
+        "answerText": "F = M (mass) * a (acceleration)",
+        "tagString": "physics grade10 formula kinectic force mass acceleration"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Static Electrical Force",
+        "answerType": "TEXT",
+        "answerText": "F = G (constant) * q1 (charge) * q2 (charge) / r (distance) ^2",
+        "tagString": "physics grade10 formula force static electricity charge distance"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Torque",
+        "answerType": "TEXT",
+        "answerText": "T = F (force) * D (perpendicular distance)",
+        "tagString": "physics grade10 gravity formula force distance torque"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Pressure",
+        "answerType": "TEXT",
+        "answerText": "T = F (force) / A (area)",
+        "tagString": "physics grade10 gravity formula force area thrust"
       }
     ]
   }

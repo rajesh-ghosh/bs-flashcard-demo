@@ -46,10 +46,17 @@ public class LocaleController {
         return(locales);
     }
 
-    @GetMapping("locales/{locale[A-Za-z]+}")
+    @GetMapping("locales/{locale:^[a-z]{2}-[A-Z]{2}$}")
     @ResponseBody
     public LocaleEntity findByCode(@PathVariable("locale") String locale) {
         var one = locSvc.findByLocale(locale);
+        return one;
+    }
+
+    @GetMapping("locales/{id:[0-9]+}")
+    @ResponseBody
+    public LocaleEntity findById(@PathVariable("id") Long id) {
+        var one = locSvc.findByById(id);
         return one;
     }
 

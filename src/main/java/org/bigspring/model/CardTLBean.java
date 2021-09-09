@@ -47,6 +47,12 @@ public class CardTLBean implements Serializable {
     })
     private String answerText;
 
+    @Column(name="answer_image_file", nullable = true)
+    @Fields({
+            @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
+    })
+    private String anwserImageFileLoc;
+
     public String getLocaleCode() {
         return localeCode;
     }
@@ -85,5 +91,13 @@ public class CardTLBean implements Serializable {
 
     public void setAnswerText(String answerText) {
         this.answerText = answerText;
+    }
+
+    public String getAnwserImageFileLoc() {
+        return anwserImageFileLoc;
+    }
+
+    public void setAnwserImageFileLoc(String anwserImageFileLoc) {
+        this.anwserImageFileLoc = anwserImageFileLoc;
     }
 }

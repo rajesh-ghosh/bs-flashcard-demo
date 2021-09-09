@@ -497,6 +497,7 @@ public class CardService extends AbstractService<CardEntity> {
 
         if (addBaseTl) {
             var tl = new CardTLBean();
+            tl.setAnwserImageFileLoc(entity.getAnswerImageFileLoc());
             tl.setAnswerText(entity.getAnswerText());
             tl.setChallengeImageFileLoc(entity.getChallengeImageFileLoc());
             tl.setChallengeText(entity.getChallengeText());
