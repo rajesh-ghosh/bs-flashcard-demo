@@ -235,6 +235,11 @@ public class CardGroupService extends AbstractService<CardGroupEntity> {
         if (entity2 == null)
             throw new IllegalArgumentException("Could not determine card group with ID - " + entity.getId());
 
+        if (entity.getTitle() != null && !"".equals(entity.getTitle())) {
+            entity2.setTitle(entity.getTitle());
+        }
+        entity2.setEnabled(entity.isEnabled());
+
         var rev = makeRevision();
         entity2.getRevisionControl().setRevisionDate(rev.getRevisionDate());
         entity2.getRevisionControl().setRevisedById(rev.getRevisedById());
