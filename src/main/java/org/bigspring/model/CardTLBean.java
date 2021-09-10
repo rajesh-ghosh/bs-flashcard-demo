@@ -40,7 +40,7 @@ public class CardTLBean implements Serializable {
     })
     private String challengeImageFileLoc;
 
-    @Column(name="answer_text", nullable = false)
+    @Column(name="answer_text", nullable = true)
     @Fields({
             @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO),
             @Field(name="answer-tl-analyzed", analyzer = @Analyzer(definition = "analyzerSet1"))
