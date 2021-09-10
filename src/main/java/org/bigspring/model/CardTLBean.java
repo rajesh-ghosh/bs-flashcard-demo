@@ -1,6 +1,8 @@
 package org.bigspring.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.apache.lucene.analysis.core.LowerCaseFilterFactory;
+import org.apache.lucene.analysis.standard.StandardTokenizerFactory;
 import org.hibernate.search.annotations.*;
 
 import javax.persistence.Column;
@@ -49,7 +51,7 @@ public class CardTLBean implements Serializable {
     @Fields({
             @Field(index = Index.YES, analyze = Analyze.NO, store = Store.NO)
     })
-    private String answerImageFileLoc;
+    private String anwserImageFileLoc;
 
     public String getLocaleCode() {
         return localeCode;
@@ -91,11 +93,11 @@ public class CardTLBean implements Serializable {
         this.answerText = answerText;
     }
 
-    public String getAnswerImageFileLoc() {
-        return answerImageFileLoc;
+    public String getAnwserImageFileLoc() {
+        return anwserImageFileLoc;
     }
 
-    public void setAnswerImageFileLoc(String answerImageFileLoc) {
-        this.answerImageFileLoc = answerImageFileLoc;
+    public void setAnwserImageFileLoc(String anwserImageFileLoc) {
+        this.anwserImageFileLoc = anwserImageFileLoc;
     }
 }
