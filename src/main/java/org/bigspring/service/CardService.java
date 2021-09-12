@@ -301,6 +301,23 @@ public class CardService extends AbstractService<CardEntity> {
     }
 
     @Transactional
+    public List<CardEntity> getCardsByTlStatus(boolean fullTls) {
+        var cards = cardRepo.findAll();
+        List<CardEntity> tls = null;
+        if (cards != null && !cards.isEmpty()) {
+            Set<String> locCodes = locSvc.getLocaleCodes(true);
+            if (fullTls)
+                tls = cards.stream().filter(card -> getCardLocales(card).containsAll(locCodes)).collect(Collectors.toList());
+            else
+                tls = cards.stream().filter(card -> (!getCardLocales(card).containsAll(locCodes))).collect(Collectors.toList());
+        }
+        if (tls != null && !tls.isEmpty())
+            processGroupTitle(tls);
+
+        return (tls);
+    }
+
+    @Transactional
     public CardsSummaryBean getCardsSummary() {
         var cards = cardRepo.findAll();
         var bean = new CardsSummaryBean();

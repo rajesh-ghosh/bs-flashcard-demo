@@ -25,9 +25,19 @@ public class CardController {
     @GetMapping("/cards")
     @Transactional
     @ResponseBody
-    public List<CardEntity> findAll() {
-        var all = svc.findAll();
-        return(all);
+    public List<CardEntity> findCards(@RequestParam(value="filterby", required = false, defaultValue = "all") String filterby) {
+
+        List<CardEntity> cards = new ArrayList<>();
+        if ("all".equalsIgnoreCase(filterby))
+            cards = svc.findAll();
+        else if ("fulltls".equalsIgnoreCase(filterby))
+            cards = svc.getCardsByTlStatus(true);
+        else if ("parttls".equalsIgnoreCase(filterby))
+            cards = svc.getCardsByTlStatus(false);
+        else
+            throw new IllegalArgumentException("Invalid filter type - " + filterby);
+
+        return(cards);
     }
 
     @PostMapping("/cards")
