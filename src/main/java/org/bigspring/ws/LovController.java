@@ -3,16 +3,16 @@ package org.bigspring.ws;
 import com.fasterxml.jackson.databind.ser.FilterProvider;
 import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
+import org.bigspring.model.LocaleEntity;
 import org.bigspring.service.CardGroupService;
 import org.bigspring.service.CardService;
 import org.bigspring.service.LocaleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.converter.json.MappingJacksonValue;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/lov")
@@ -33,9 +33,13 @@ public class LovController {
 
 
     @GetMapping("/locales")
-    public MappingJacksonValue findaAllLocales() {
+    public MappingJacksonValue findaAllLocales(@RequestParam(name="enabled", required = false, defaultValue = "false") boolean enabled) {
 
-        var locales = locSvc.findAllLocales();
+        List<LocaleEntity> locales = null;
+        if (enabled)
+            locales = locSvc.findByEnabledLocales();
+        else
+            locales = locSvc.findAllLocales();
 
         SimpleBeanPropertyFilter filter = SimpleBeanPropertyFilter.filterOutAllExcept("id", "locale", "name", "isoCharSet");
         FilterProvider filters = new SimpleFilterProvider().addFilter("lovFilter", filter);
