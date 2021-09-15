@@ -135,5 +135,46 @@
         "tagString": "physics grade10 gravity formula force area thrust"
       }
     ]
+  },
+  {
+    "title": "Mother-Baby Animals",
+    "enabled": "true",
+    "cards": [
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Horse",
+        "answerType": "TEXT",
+        "answerText": "pony",
+        "tagString": "mother baby horse pony animal mamal"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Whale",
+        "answerType": "TEXT",
+        "answerText": "Calf",
+        "tagString": "mother baby whale calf animal mamal"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Cow",
+        "answerType": "TEXT",
+        "answerText": "calf",
+        "tagString": "mother baby cow calf animal mamal"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Deer",
+        "answerType": "TEXT",
+        "answerText": "Fawn",
+        "tagString": "mother baby deer fawn animal mamal"
+      },
+      {
+        "challengeType": "TEXT",
+        "challengeText": "Grasshopper",
+        "answerType": "TEXT",
+        "answerText": "Nymph",
+        "tagString": "mother baby grasshopper nymph insect"
+      }
+    ]
   }
 ]
